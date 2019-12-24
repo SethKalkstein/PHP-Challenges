@@ -135,7 +135,7 @@ echo expanded_form(32065);
 
 // Given an array of ones and zeroes, convert the equivalent binary value to an integer.
 
-function binaryArrayToNumber($arr) {
+/* function binaryArrayToNumber($arr) {
   $sum = 0;
   $elements = count($arr)-1;
 
@@ -147,6 +147,42 @@ function binaryArrayToNumber($arr) {
   return $sum;
 }
 
-echo binaryArrayToNumber([1,1,1,1,0,1]);
+echo binaryArrayToNumber([1,1,1,1,0,1]); */
+
+?>
+
+<?php 
+
+// A bookseller has lots of books classified in 26 categories labeled A, B, ... Z. Each book has a code c of 3, 4, 5 or more capitals letters. The 1st letter of a code is the capital letter of the book category. In the bookseller's stocklist each code c is followed by a space and by a positive integer n (int n >= 0) which indicates the quantity of books of this code in stock.
+
+// You will be given a stocklist (e.g. : L) and a list of categories in capital letters. and your task is to find all the books of L with codes belonging to each category of M and to sum their quantity according to each category. 
+
+function stockList($listOfArt, $listOfCat){
+  $result = "";
+  
+  if(empty($listOfArt) || empty($listOfCat)){
+    return $result;
+  }
+
+  foreach($listOfCat as $iteration => $category) {
+    $sum = 0;
+
+    foreach($listOfArt as $article){
+    
+      if($category === $article[0]){
+        $sum += explode(" ", $article)[1];
+      }
+    }
+    
+    $result .= "($category : $sum)".($iteration === count($listOfCat) - 1 ? "" : " - ");
+  }
+  
+  return $result;
+}
+
+$art = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
+$cat = ["A", "B"];
+
+stockList($art, $cat);
 
 ?>
