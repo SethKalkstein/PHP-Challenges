@@ -123,10 +123,30 @@ echo expanded_form(32065);
 
 // In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". 
 
-function DNA_strand($dna) {
-    return strtr($dna, "ATCG", "TAGC");
+// function DNA_strand($dna) {
+/*     return strtr($dna, "ATCG", "TAGC");
   }
 
-  echo DNA_strand("TAACG");
+  echo DNA_strand("TAACG"); */
+
+?>
+
+<?php 
+
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+function binaryArrayToNumber($arr) {
+  $sum = 0;
+  $elements = count($arr)-1;
+
+
+  for($i = 0; $i <= $elements; $i++ ){
+    $sum += $arr[$i] * 2**($elements-$i);
+  }
+
+  return $sum;
+}
+
+echo binaryArrayToNumber([1,1,1,1,0,1]);
 
 ?>
