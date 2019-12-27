@@ -157,7 +157,7 @@ echo binaryArrayToNumber([1,1,1,1,0,1]); */
 
 // You will be given a stocklist (e.g. : L) and a list of categories in capital letters. and your task is to find all the books of L with codes belonging to each category of M and to sum their quantity according to each category. 
 
-function stockList($listOfArt, $listOfCat){
+/* function stockList($listOfArt, $listOfCat){
   $result = "";
   
   if(empty($listOfArt) || empty($listOfCat)){
@@ -183,6 +183,35 @@ function stockList($listOfArt, $listOfCat){
 $art = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
 $cat = ["A", "B"];
 
-stockList($art, $cat);
+stockList($art, $cat); */
+
+?>
+
+<?php 
+
+// In John's car the GPS records every s seconds the distance travelled from an origin (distances are measured in an arbitrary but consistent unit, x). For example, below is part of a record with s = 15:
+
+
+function gps($s, $x) {
+
+  $xLength = count($x);
+  $highestInterval = 0;
+
+  if($xLength <= 1){ 
+    return $highestInterval;
+  }
+
+  for($i = 1; $i < $xLength; $i++){
+    $tempInterval = floor((3600 * ($x[$i]-$x[$i-1])) / $s);
+    $highestInterval = $tempInterval > $highestInterval ? $tempInterval : $highestInterval;
+  }
+
+  return $highestInterval;
+}
+
+$x = [0.0, 0.19, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25];
+$s = 15;
+
+echo gps($s, $x);
 
 ?>
