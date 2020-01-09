@@ -188,7 +188,7 @@ stockList($art, $cat); */
 ?>
 
 <?php 
-
+/* 
 // In John's car the GPS records every s seconds the distance travelled from an origin (distances are measured in an arbitrary but consistent unit, x). For example, below is part of a record with s = 15:
 
 
@@ -213,5 +213,18 @@ $x = [0.0, 0.19, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25];
 $s = 15;
 
 echo gps($s, $x);
+ */
+?>
+
+<?php 
+
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+function solution($full, $ending){
+  return strrpos( $full , $ending) === strlen($full) - strlen($ending) ? true : false;
+}
+
+echo solution('aasasasbc', 'bc'); // returns true
+echo solution('sumo', 'omo'); // returns false
 
 ?>
