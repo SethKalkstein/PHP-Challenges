@@ -230,7 +230,7 @@ echo solution('sumo', 'omo'); // returns false
 ?>
 
 <?php 
-
+/* 
 // When you divide the successive powers of 10 by 13 you get repeating remainders.
 // multiply each digit by the remainder of its corresponding place value divided by thirteen then do again for the next number
 // The cycle goes on and you sum all these products. Repeat this process until the sequence of sums is stationary.
@@ -263,12 +263,27 @@ function thirt($newNumber){
 
 echo thirt(321);
 
-/* 
-for($i = 0; $i < 18; $i++){
-  $temp = 10**$i;
-  echo "i is: ".$i." and 10^i is: ".$temp." and that number %13 is: ".($temp%13)."<br>"; 
-}
+
+// for($i = 0; $i < 18; $i++){
+//   $temp = 10**$i;
+//   echo "i is: ".$i." and 10^i is: ".$temp." and that number %13 is: ".($temp%13)."<br>"; 
+// }
+
+
  */
+?>
+
+<?php 
+
+// You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
+
+// You can assume all values in the array are numbers.
 
 
+function smallEnough($a, $limit){return max($a) <= $limit;}
+
+echo smallEnough([1,199],200);
+
+//if it were the sum of the array...
+// function smallEnough($a, $limit){return array_reduce($a, function($carry, $item){return $carry+$item;}) <= $limit;}
 ?>
