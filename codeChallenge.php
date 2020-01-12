@@ -290,7 +290,7 @@ echo smallEnough([1,199],200);
 ?>
 
 <?php 
-
+/* 
 // Description:
 
 // You are the "computer expert" of a local Athletic Association (C.A.A.). Many teams of runners come to compete. Each time you get a string of all race results of every team who has run. For example here is a string showing the individual results of a team of 5 runners:
@@ -375,5 +375,17 @@ function format($theTime, $type ) {
 }
 
 echo statAssoc("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17");
+ */
+?>
 
+<?php 
+
+// You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+function getMiddle($text) {
+  $length = strlen($text);
+  return ($length % 2 == 0 ? $text[floor($length/2)-1] : "").$text[floor($length/2)];  
+}
+
+echo getMiddle("testing");
 ?>
