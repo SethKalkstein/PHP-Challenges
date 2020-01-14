@@ -381,11 +381,56 @@ echo statAssoc("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17");
 <?php 
 
 // You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
-
+/* 
 function getMiddle($text) {
   $length = strlen($text);
   return ($length % 2 == 0 ? $text[floor($length/2)-1] : "").$text[floor($length/2)];  
 }
 
 echo getMiddle("testing");
+ */
+?>
+
+<?php 
+  // The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+
+  //long way
+  
+function duplicate_encode($word){
+  $letterArray = str_split(strtolower($word));
+  $letterCountArray = [];
+
+	foreach($letterArray as $character){
+    if($letterCountArray[$character]){
+      $letterCountArray[$character]++;
+    } else {
+      $letterCountArray[$character] = 1;
+    }
+  }
+  
+  $duplicateLetters = [];
+  
+  foreach($letterCountArray as $character => $value){
+    if($value > 1){
+      $duplicateLetters[] = $character;
+    }
+  }
+  
+  $result = "";
+
+  foreach($letterArray as $character){
+    $result .= (array_search( $character , $duplicateLetters) !== false ? ")" : "(");
+  }
+  
+  return $result;
+}
+
+echo duplicate_encode("(( @");
+
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+               //  )())())
+// "(( @"     =>  "))((" 
 ?>
